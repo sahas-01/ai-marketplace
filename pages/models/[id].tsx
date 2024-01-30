@@ -24,25 +24,25 @@ const ModelInfoPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar />
-
-            <ModelInfoAbout />
-
+            <section className='h-auto my-5 px-20'>
+                <ModelInfoAbout />
+            </section>
             {/* Tabs */}
             <section className="flex items-center justify-start gap-5 mx-24 my-10">
                 <button
-                    className={`text-white text-base font-medium cursor-pointer list-none ${activeTab === 'about' ? 'text-cyan-500' : ''}`}
+                    className={`text-white text-base font-medium cursor-pointer list-none ${activeTab === 'about' ? 'text-blue-500' : ''}`}
                     onClick={() => handleTabChange('about')}
                 >
                     About
                 </button>
                 <button
-                    className={`text-white text-base font-medium cursor-pointer list-none ${activeTab === 'useCases' ? 'text-cyan-500' : ''}`}
+                    className={`text-white text-base font-medium cursor-pointer list-none ${activeTab === 'useCases' ? 'text-blue-500' : ''}`}
                     onClick={() => handleTabChange('useCases')}
                 >
                     Use Cases
                 </button>
                 <button
-                    className={`text-white text-base font-medium cursor-pointer list-none ${activeTab === 'demo' ? 'text-cyan-500' : ''}`}
+                    className={`text-white text-base font-medium cursor-pointer list-none ${activeTab === 'demo' ? 'text-blue-500' : ''}`}
                     onClick={() => handleTabChange('demo')}
                 >
                     Demo
