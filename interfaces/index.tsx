@@ -2,4 +2,9 @@ interface NavbarProps {
     className?: string;
 }
 
-export type { NavbarProps };
+interface SEOHeadProps {
+    titleString: string;
+    description?: string;
+}
+
+export type { NavbarProps, SEOHeadProps };
