@@ -16,7 +16,7 @@ const ModelCard = ({ id }: ModelCardProps) => {
     const router = useRouter();
 
     return (
-        <div className='relative bg-[#1E2129] rounded-[20px] shadow-xl'>
+        <div className='relative bg-[#141519] rounded-[20px] shadow-xl'>
             <div className="flex flex-col">
                 <div className="flex items-center justify-start mx-5 mt-1.5 gap-x-5">
                     <div className="flex flex-col">

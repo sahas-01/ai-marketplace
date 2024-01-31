@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import ModelInfoAbout from '@/sections/ModelInfoTop';
 import Head from 'next/head';
+import DetailAbout from '@/sections/DetailAbout';
+import UseCases from '@/sections/UseCases';
 
 const ModelInfoPage = () => {
     // State to track the active tab
@@ -28,26 +30,32 @@ const ModelInfoPage = () => {
                 <ModelInfoAbout />
             </section>
             {/* Tabs */}
-            <section className="flex items-center justify-start gap-5 mx-24 my-10">
-                <button
-                    className={`text-white text-base font-medium cursor-pointer list-none ${activeTab === 'about' ? 'text-blue-500' : ''}`}
-                    onClick={() => handleTabChange('about')}
-                >
+            <section className="flex items-center justify-start gap-10 mx-24 my-10">
+                <button onClick={() => handleTabChange('about')} className={`text-base font-medium ${activeTab === 'about' ? 'text-[#0284c7] border-b-2 border-[#0284c7]' : 'text-white border-none'}`}>
                     About
                 </button>
-                <button
-                    className={`text-white text-base font-medium cursor-pointer list-none ${activeTab === 'useCases' ? 'text-blue-500' : ''}`}
-                    onClick={() => handleTabChange('useCases')}
-                >
+                <button onClick={() => handleTabChange('useCases')} className={`text-base font-medium ${activeTab === 'useCases' ? 'text-[#0284c7] border-b-2 border-[#0284c7]' : 'text-white border-none'}`}>
                     Use Cases
                 </button>
-                <button
-                    className={`text-white text-base font-medium cursor-pointer list-none ${activeTab === 'demo' ? 'text-blue-500' : ''}`}
-                    onClick={() => handleTabChange('demo')}
-                >
-                    Demo
+                <button onClick={() => handleTabChange('reviews')} className={`text-base font-medium ${activeTab === 'reviews' ? 'text-[#0284c7] border-b-2 border-[#0284c7]' : 'text-white border-none'}`}>
+                    Documentation
                 </button>
             </section>
+
+            {
+                activeTab === 'about' && (
+                    <section className='h-auto my-5 px-24'>
+                        <DetailAbout />
+                    </section>
+                )
+            }
+            {
+                activeTab === 'useCases' && (
+                    <section className='h-auto my-5 px-24'>
+                        <UseCases />
+                    </section>
+                )
+            }
 
         </>
     );

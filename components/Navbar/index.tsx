@@ -1,5 +1,6 @@
 import { NavbarProps } from '@/interfaces';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 const Navbar: React.FC<NavbarProps> = ({ className }) => {
@@ -9,7 +10,8 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
     return (
         <header className="bg-[#1D2028] relative w-full z-50 px-24 sticky top-0 h-[72px] shadow-lg">
             <div className="mx-auto flex items-center justify-between py-4">
-                <h1 className={`text-white text-xl font-bold cursor-pointer ${className}`}>AI Marketplace
+                <h1 className={`text-white text-xl font-bold cursor-pointer ${className}`}>
+                    <Link href='/models'>AI Marketplace</Link>
                 </h1>
                 {
                     isMenuOpen && (
@@ -28,7 +30,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                 }
                 <nav className="hidden md:flex items-center gap-x-11">
                     <li className={`flex text-white text-sm font-medium cursor-pointer list-none text-[#0284c7] ${className}`}>
-                        <a className='text-[#0284c7]'>Home</a>
+                        <a href='/models' className='text-[#0284c7]'>Home</a>
                     </li>
                     <li className={`text-white text-sm font-medium cursor-pointer list-none ${className}`}>Explore AI Tools</li>
                 </nav>
