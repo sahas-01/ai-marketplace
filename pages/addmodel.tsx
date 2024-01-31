@@ -7,7 +7,7 @@ const AddModel = () => {
 
   const initialModelData = {
     title: '',
-    oneLineDescription: '',
+    shortDescription: '',
     longDescription: '',
     category: '',
     useCases: '',
@@ -15,6 +15,25 @@ const AddModel = () => {
   }
 
   const [modelData, setModelData] = useState(initialModelData)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    console.log(modelData)
+    const res = await fetch('/api/addModelData', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(modelData),
+    })
+    const data = await res.json()
+    if (data.status === 201) {
+      alert('Model Added Successfully')
+      setModelData(initialModelData)
+    } else {
+      alert(data.message);
+    }
+  }
 
   return (
     <>
@@ -26,7 +45,7 @@ const AddModel = () => {
       >
         <form
           className="bg-[#1a1e27] w-8/12 h-fit rounded-xl p-5 mt-3"
-        // onSubmit={handleSubmit}
+          onSubmit={handleSubmit}
         >
           <h2 className="font-bold text-white text-2xl text-center">
             Add Model
@@ -53,9 +72,9 @@ const AddModel = () => {
                             transition transform duration-100 ease-out
                             "
               placeholder='Short Description(in a sentence)'
-              value={modelData.oneLineDescription}
+              value={modelData.shortDescription}
               onChange={(e) =>
-                setModelData({ ...modelData, oneLineDescription: e.target.value })
+                setModelData({ ...modelData, shortDescription: e.target.value })
               }
             />
           </div>

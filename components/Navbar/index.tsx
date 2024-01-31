@@ -1,5 +1,4 @@
 import { NavbarProps } from '@/interfaces';
-import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -10,14 +9,14 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
     const router = useRouter();
 
     return (
-        <header className="bg-[#1D2028] relative w-full z-50 px-24 sticky top-0 h-[72px] shadow-lg">
+        <header className="bg-[#181c22] relative w-full z-50 px-24 sticky top-0 h-[72px] shadow-lg">
             <div className="mx-auto flex items-center justify-between py-4">
                 <h1 className={`text-white text-xl font-bold cursor-pointer ${className}`}>
                     <Link href='/models'>AI Marketplace</Link>
                 </h1>
                 {
                     isMenuOpen && (
-                        <div className="absolute top-[72px] left-0 w-full bg-[#1D2028] z-50">
+                        <div className="absolute top-[72px] left-0 w-full bg-[#181c22] z-50">
                             <nav className="flex flex-col items-center gap-y-5 py-5">
                                 <li className={`flex text-white text-sm font-medium cursor-pointer list-none text-[#0284c7] ${className}`}>
                                     <a>Home</a>
@@ -38,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                 }
                 <nav className="hidden md:flex items-center gap-x-11">
                     <li className={`flex text-white text-sm font-medium cursor-pointer list-none`}>
-                        <a href='/models' className={router.asPath == '/models' ? 'text-[#0284c7]' : 'text-white'}>Home</a>
+                        <Link href='/models' className={router.asPath == '/models' ? 'text-[#0284c7]' : 'text-white'}>Home</Link>
                     </li>
                     <li className={`text-white text-sm font-medium cursor-pointer list-none`}>Explore AI Tools</li>
                 </nav>
