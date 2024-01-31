@@ -5,6 +5,7 @@ import Head from 'next/head';
 import DetailAbout from '@/sections/DetailAbout';
 import UseCases from '@/sections/UseCases';
 import SEOHead from '@/utils/SEOHead';
+import Image from 'next/image';
 
 const ModelInfoPage = () => {
     // State to track the active tab
@@ -21,7 +22,9 @@ const ModelInfoPage = () => {
             <SEOHead titleString='AI MarketPlace-Atlan | Model Info' />
             <Navbar />
             <section className='h-auto my-5 px-20'>
-                <ModelInfoAbout />
+                <div className="flex flex-col md:flex-row items-center mx-5">
+                    <ModelInfoAbout />
+                </div>
             </section>
             {/* Tabs */}
             <section className="flex items-center justify-start gap-10 mx-24 my-10">
