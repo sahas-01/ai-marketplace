@@ -2,10 +2,12 @@ import { NavbarProps } from '@/interfaces';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const Navbar: React.FC<NavbarProps> = ({ className }) => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const router = useRouter();
 
     return (
         <header className="bg-[#1D2028] relative w-full z-50 px-24 sticky top-0 h-[72px] shadow-lg">
@@ -21,7 +23,13 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                                     <a>Home</a>
                                 </li>
                                 <li className={`text-white text-sm font-medium cursor-pointer list-none ${className}`}>Explore AI Tools</li>
-                                <button className={`flex text-white bg-[#0284c7] font-medium px-5 py-2.5 rounded-lg w-auto ${className}`}>
+                                <button
+                                    onClick={
+                                        () => {
+                                            router.push('/addmodel');
+                                        }
+                                    }
+                                    className={`flex text-white bg-[#0284c7] font-medium px-5 py-2.5 rounded-lg w-auto ${className}`}>
                                     Add model
                                 </button>
                             </nav>
@@ -29,10 +37,10 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                     )
                 }
                 <nav className="hidden md:flex items-center gap-x-11">
-                    <li className={`flex text-white text-sm font-medium cursor-pointer list-none text-[#0284c7] ${className}`}>
-                        <a href='/models' className='text-[#0284c7]'>Home</a>
+                    <li className={`flex text-white text-sm font-medium cursor-pointer list-none`}>
+                        <a href='/models' className={router.asPath == '/models' ? 'text-[#0284c7]' : 'text-white'}>Home</a>
                     </li>
-                    <li className={`text-white text-sm font-medium cursor-pointer list-none ${className}`}>Explore AI Tools</li>
+                    <li className={`text-white text-sm font-medium cursor-pointer list-none`}>Explore AI Tools</li>
                 </nav>
                 <button
                     className="md:hidden text-white cursor-pointer focus:outline-none"
@@ -57,7 +65,13 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                         ></path>
                     </svg>
                 </button>
-                <button className={`hidden md:flex gap-x-2 text-white bg-[#0284c7] font-medium px-5 py-2.5 rounded-lg w-auto ${className}`}>
+                <button
+                    onClick={
+                        () => {
+                            router.push('/addmodel');
+                        }
+                    }
+                    className={`hidden md:flex gap-x-2 text-white bg-[#0284c7] font-medium px-5 py-2.5 rounded-lg w-auto ${className}`}>
                     Add model
                 </button>
             </div>

@@ -4,6 +4,7 @@ import ModelInfoAbout from '@/sections/ModelInfoTop';
 import Head from 'next/head';
 import DetailAbout from '@/sections/DetailAbout';
 import UseCases from '@/sections/UseCases';
+import SEOHead from '@/utils/SEOHead';
 
 const ModelInfoPage = () => {
     // State to track the active tab
@@ -17,14 +18,7 @@ const ModelInfoPage = () => {
 
     return (
         <>
-            <Head>
-                <title>AI Marketplace-Atlan</title>
-                <meta
-                    name="description"
-                    content="Next.js + Tailwind CSS + TypeScript + ESLint + Prettier"
-                />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <SEOHead titleString='AI MarketPlace-Atlan | Model Info' />
             <Navbar />
             <section className='h-auto my-5 px-20'>
                 <ModelInfoAbout />
