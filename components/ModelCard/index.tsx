@@ -10,7 +10,7 @@ const ModelCard: React.FC<{ model: ModelData }> = ({ model }) => {
     const router = useRouter();
 
     return (
-        <div className='relative bg-[#242731] rounded-[20px] shadow-xl'>
+        <div className='relative bg-modelCardBg rounded-[20px] shadow-xl'>
             <div className="flex flex-col">
                 <div className="flex items-center justify-start mx-5 mt-1.5 gap-x-5">
                     <div className="flex flex-col">
@@ -57,7 +57,7 @@ const ModelCard: React.FC<{ model: ModelData }> = ({ model }) => {
                 </div>
                 <p className="flex gap-x-1 text-[#B2B4C6] text-xs mx-5 my-1.5">
                     Developed by:
-                    <span className="text-[#0284c7] font-medium">
+                    <span className="text-blueLight font-medium">
                         {
                             model.developedBy ? model.developedBy : 'Atlan'
                         }
@@ -67,7 +67,7 @@ const ModelCard: React.FC<{ model: ModelData }> = ({ model }) => {
             <button onClick={() => {
                 router.push(`/models/${model._id}`)
             }}
-                className="flex text-sm text-white bg-[#0284c7] hover:bg-blue-600 font-medium px-4 py-1.5 rounded-lg w-auto m-5">
+                className="flex text-sm text-white bg-blueLight hover:bg-blue-600 font-medium px-4 py-1.5 rounded-lg w-auto m-5">
                 View more
             </button>
         </div>

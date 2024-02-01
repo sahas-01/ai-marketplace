@@ -16,13 +16,13 @@ const ModelInfoAbout: React.FC<ModelInfoAboutProps> = ({ title, shortDescription
                 <div className='flex flex-col md:flex-row items-center gap-x-2 px-3 py-3'>
                     <span className={`text-sm font-medium text-white bg-gray-700 px-3 py-1 rounded-xl`}>{category}</span>
                     <p className='text-sm font-medium text-white'>Developed by:</p>
-                    <span className={`text-sm font-medium text-[#0284c7]`}>{developedBy}</span>
+                    <span className={`text-sm font-medium text-blueLight`}>{developedBy}</span>
                 </div>
                 <div className='flex'>
                     <p className='text-sm font-medium text-white px-5'>Stars:</p>
-                    <span className={`text-sm font-medium text-[#0284c7]`}>{stars}</span>
+                    <span className={`text-sm font-medium text-blueLight`}>{stars}</span>
                     <p className='text-sm font-medium text-white px-5'>Downloads:</p>
-                    <span className={`text-sm font-medium text-[#0284c7]`}>{downloads}</span>
+                    <span className={`text-sm font-medium text-blueLight`}>{downloads}</span>
                 </div>
             </div>
         </>

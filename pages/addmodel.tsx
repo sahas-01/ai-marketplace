@@ -45,7 +45,7 @@ const AddModel = () => {
                 justify-center"
       >
         <form
-          className="bg-[#11141e] w-8/12 h-fit rounded-xl p-5 mt-3"
+          className="bg-formBg w-8/12 h-fit rounded-xl p-5 mt-3"
           onSubmit={handleSubmit}
         >
           <h2 className="font-bold text-white text-2xl text-center">
@@ -60,7 +60,7 @@ const AddModel = () => {
                 setModelData({ ...modelData, title: e.target.value })
               }
               id="username"
-              className="block h-12 bg-[#ffffff12] text-white rounded-lg px-2 border border-slate-600 py-5 mt-5 mb-2 mr-10 text-sm w-full focus:outline-none
+              className="block h-12 bg-inputsBg text-white rounded-lg px-2 border border-slate-600 py-5 mt-5 mb-2 mr-10 text-sm w-full focus:outline-none
                             transition transform duration-100 ease-out
                             "
               required
@@ -69,7 +69,7 @@ const AddModel = () => {
           <div className="flex relative m-0">
             <input
               type='text'
-              className="block h-12 bg-[#ffffff12] text-white rounded-lg px-2 border border-slate-600 py-5 mt-5 mb-2 mr-10 text-sm w-full focus:outline-none
+              className="block h-12 bg-inputsBg text-white rounded-lg px-2 border border-slate-600 py-5 mt-5 mb-2 mr-10 text-sm w-full focus:outline-none
                             transition transform duration-100 ease-out
                             "
               placeholder='Short Description(in a sentence)'
@@ -81,7 +81,7 @@ const AddModel = () => {
           </div>
           <div className="flex relative m-0">
             <textarea
-              className="block h-fit bg-[#ffffff12] text-white rounded-lg px-2 border border-slate-600 py-5 mt-5 mb-2 mr-10 text-sm w-full focus:outline-none
+              className="block h-fit bg-inputsBg text-white rounded-lg px-2 border border-slate-600 py-5 mt-5 mb-2 mr-10 text-sm w-full focus:outline-none
             transition transform duration-100 ease-out resize-none 
             "
               rows={10} cols={50} placeholder='Long Description' value={modelData.longDescription} onChange={(e) => setModelData({ ...modelData, longDescription: e.target.value })} />
@@ -89,7 +89,7 @@ const AddModel = () => {
           <div className="flex relative m-0">
             <input
               type='text'
-              className="block h-12 bg-[#ffffff12] text-white rounded-lg px-2 border border-slate-600 py-5 mt-5 mb-2 mr-10 text-sm w-full focus:outline-none
+              className="block h-12 bg-inputsBg text-white rounded-lg px-2 border border-slate-600 py-5 mt-5 mb-2 mr-10 text-sm w-full focus:outline-none
                             transition transform duration-100 ease-out
                             "
               placeholder='Category'
@@ -101,14 +101,14 @@ const AddModel = () => {
           </div>
           <div className="flex relative m-0">
             <textarea
-              className="block h-fit bg-[#ffffff12] text-white rounded-lg px-2 border border-slate-600 py-5 mt-5 mb-2 mr-10 text-sm w-full focus:outline-none
+              className="block h-fit bg-inputsBg text-white rounded-lg px-2 border border-slate-600 py-5 mt-5 mb-2 mr-10 text-sm w-full focus:outline-none
             transition transform duration-100 ease-out resize-none 
             "
               rows={10} cols={50} placeholder='Use Cases' value={modelData.useCases} onChange={(e) => setModelData({ ...modelData, useCases: e.target.value })} />
           </div>
           <div className="flex relative m-0">
             <textarea
-              className="block h-fit bg-[#ffffff12] text-white rounded-lg px-2 border border-slate-600 py-5 mt-5 mb-2 mr-10 text-sm w-full focus:outline-none
+              className="block h-fit bg-inputsBg text-white rounded-lg px-2 border border-slate-600 py-5 mt-5 mb-2 mr-10 text-sm w-full focus:outline-none
             transition transform duration-100 ease-out resize-none 
             "
               rows={10} cols={50} placeholder='Code Snippet' value={modelData.codeSnippet} onChange={(e) => setModelData({ ...modelData, codeSnippet: e.target.value })} />
@@ -116,7 +116,7 @@ const AddModel = () => {
           <div className='flex relative m-0'>
             <input
               type='text'
-              className="block h-12 bg-[#ffffff12] text-white rounded-lg px-2 border border-slate-600 py-5 mt-5 mb-2 mr-10 text-sm w-full focus:outline-none
+              className="block h-12 bg-inputsBg text-white rounded-lg px-2 border border-slate-600 py-5 mt-5 mb-2 mr-10 text-sm w-full focus:outline-none
                             transition transform duration-100 ease-out
                             "
               placeholder='Developed By'
@@ -131,7 +131,7 @@ const AddModel = () => {
           <div className="flex align-center justify-center">
             <button
               type="submit"
-              className="block bg-sky-700 hover:bg-blue-700 text-white text-lg font-bold rounded-xl px-2 py-3 mt-5 mb-2 mr-10 w-full focus:outline-none transition transform duration-100 ease-out"
+              className="block bg-blueLight hover:bg-blue-700 text-white text-lg font-bold rounded-xl px-2 py-3 mt-5 mb-2 mr-10 w-full focus:outline-none transition transform duration-100 ease-out"
             >
               Submit
             </button>

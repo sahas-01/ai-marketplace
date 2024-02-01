@@ -16,7 +16,7 @@ const UseCases: React.FC<UseCasesProps> = ({ useCases }) => {
                             <p className='text-base'>
                                 {useCase}
                             </p>
-                            <hr className='my-5 border-[#2B2F3D]' />
+                            <hr className='my-5 border-borderColor' />
                         </div>
                     ))
                 }

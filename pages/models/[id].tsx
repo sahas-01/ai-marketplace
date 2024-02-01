@@ -76,20 +76,20 @@ const ModelInfoPage = () => {
             </section>
             {/* Tabs */}
             <section className="flex items-center justify-center lg:justify-start gap-10 mx-6 lg:mx-24 my-10">
-                <button onClick={() => handleTabChange('about')} className={`text-base font-medium ${activeTab === 'about' ? 'text-[#0284c7] border-b-2 border-[#0284c7]' : 'text-white border-none'}`}>
+                <button onClick={() => handleTabChange('about')} className={`text-base font-medium ${activeTab === 'about' ? 'text-blueLight border-b-2 border-blueLight' : 'text-white border-none'}`}>
                     About
                 </button>
-                <button onClick={() => handleTabChange('useCases')} className={`text-base whitespace-pre font-medium ${activeTab === 'useCases' ? 'text-[#0284c7] border-b-2 border-[#0284c7]' : 'text-white border-none'}`}>
+                <button onClick={() => handleTabChange('useCases')} className={`text-base whitespace-pre font-medium ${activeTab === 'useCases' ? 'text-blueLight border-b-2 border-blueLight' : 'text-white border-none'}`}>
                     Use Cases
                 </button>
-                <button onClick={() => handleTabChange('usage')} className={`text-base font-medium ${activeTab === 'usage' ? 'text-[#0284c7] border-b-2 border-[#0284c7]' : 'text-white border-none'}`}>
+                <button onClick={() => handleTabChange('usage')} className={`text-base font-medium ${activeTab === 'usage' ? 'text-blueLight border-b-2 border-blueLight' : 'text-white border-none'}`}>
                     Usage
                 </button>
                 {
                     modelData?.isDemo && (
                         <button
                             onClick={() => handleTabChange('tryitout')}
-                            className={`text-base font-medium ${activeTab === 'tryitout' ? 'text-[#0284c7] border-b-2 border-[#0284c7]' : 'text-white border-none'}`}>
+                            className={`text-base font-medium ${activeTab === 'tryitout' ? 'text-blueLight border-b-2 border-blueLight' : 'text-white border-none'}`}>
                             Try it out
                         </button>
                     )

@@ -8,6 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        blueLight: "#0284c7",
+        navbarBg: "#181c22",
+        modelCardBg: "#242731",
+        borderColor: "#2B2F3D",
+        formBg: "#11141e",
+        inputsBg: "#ffffff12",
+
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

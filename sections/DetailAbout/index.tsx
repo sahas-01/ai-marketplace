@@ -7,7 +7,7 @@ const DetailAbout: React.FC<DetailAboutProps> = ({ longDescription }) => {
             <p className='text-base text-white'>
                 {longDescription}
             </p>
-            <hr className='my-5 border-[#2B2F3D]' />
+            <hr className='my-5 border-borderColor' />
         </div>
     )
 }

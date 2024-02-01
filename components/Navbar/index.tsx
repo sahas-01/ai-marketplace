@@ -9,16 +9,16 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
     const router = useRouter();
 
     return (
-        <header className="bg-[#181c22] relative w-full z-50 px-10 md:px-24 sticky top-0 h-[72px] shadow-lg">
+        <header className="bg-navbarBg relative w-full z-50 px-10 md:px-24 sticky top-0 h-[72px] shadow-lg">
             <div className="mx-auto flex items-center justify-between py-4">
                 <h1 className={`text-white text-xl font-bold cursor-pointer ${className}`}>
                     <Link href='/models'>AI Marketplace</Link>
                 </h1>
                 {
                     isMenuOpen && (
-                        <div className="absolute top-[72px] left-0 w-full bg-[#181c22] z-50">
+                        <div className="absolute top-[72px] left-0 w-full bg-navbarBg z-50">
                             <nav className="flex flex-col items-center gap-y-5 py-5">
-                                <li className={`flex text-white text-sm font-medium cursor-pointer list-none text-[#0284c7] ${className}`}>
+                                <li className={`flex text-white text-sm font-medium cursor-pointer list-none text-blueLight ${className}`}>
                                     <a>Home</a>
                                 </li>
                                 <li className={`text-white text-sm font-medium cursor-pointer list-none ${className}`}>Explore AI Tools</li>
@@ -28,7 +28,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                                             router.push('/addmodel');
                                         }
                                     }
-                                    className={`flex text-white bg-[#0284c7] font-medium px-5 py-2.5 rounded-lg w-auto ${className}`}>
+                                    className={`flex text-white bg-blueLight font-medium px-5 py-2.5 rounded-lg w-auto ${className}`}>
                                     Add model
                                 </button>
                             </nav>
@@ -37,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                 }
                 <nav className="hidden md:flex items-center gap-x-11">
                     <li className={`flex text-white text-sm font-medium cursor-pointer list-none`}>
-                        <Link href='/models' className={router.asPath == '/models' ? 'text-[#0284c7]' : 'text-white'}>Home</Link>
+                        <Link href='/models' className={router.asPath == '/models' ? 'text-blueLight' : 'text-white'}>Home</Link>
                     </li>
                     <li className={`text-white text-sm font-medium cursor-pointer list-none`}>Explore AI Tools</li>
                 </nav>
@@ -70,7 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                             router.push('/addmodel');
                         }
                     }
-                    className={`hidden md:flex gap-x-2 text-white bg-[#0284c7] font-medium px-5 py-2.5 rounded-lg w-auto ${className}`}>
+                    className={`hidden md:flex gap-x-2 text-white bg-blueLight font-medium px-5 py-2.5 rounded-lg w-auto ${className}`}>
                     Add model
                 </button>
             </div>
