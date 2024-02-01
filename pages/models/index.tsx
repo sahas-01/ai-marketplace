@@ -40,9 +40,15 @@ const ModelsPage = () => {
 
         if (filter === 'all') {
             setModels(allModels);
-        } else if (filter === 'featured' || filter === 'tryitout') {
+        } else if (filter === 'featured') {
             const filteredModels = allModels.filter((model: ModelData) => {
                 return model.downloads !== undefined && model.stars !== undefined && model.downloads > 2000 && model.stars > 30;
+            });
+            setModels(filteredModels);
+        }
+        else if (filter === 'tryitout') {
+            const filteredModels = allModels.filter((model: ModelData) => {
+                return model.isDemo;
             });
             setModels(filteredModels);
         }
@@ -58,7 +64,7 @@ const ModelsPage = () => {
                 <div className="flex flex-col">
                     <h1 className="text-white lg:mx-20 text-4xl font-bold mt-5 mb-0.5">
                         {
-                            activeFilter === 'all' ? 'All' : activeFilter === 'featured' ? 'Featured' : 'Try it out'
+                            activeFilter === 'all' ? 'All' : activeFilter === 'featured' ? 'Featured' : 'Ready to try'
                         } Models</h1>
                     <div className="flex justify-start lg:mx-20 gap-x-5 items-center">
                         <button

@@ -16,9 +16,16 @@ const ModelCard: React.FC<{ model: ModelData }> = ({ model }) => {
                     <div className="flex flex-col">
                         <h4 className={`text-base font-medium mt-2 text-[#B2B4C6]`}>{model.title}</h4>
                         <div className="flex items-center gap-x-2 my-1.5">
-                            <span className={`text-xs font-medium text-white bg-gray-700 px-3 py-1 rounded-xl`}>{
+                            <span className={`text-xs font-medium text-white bg-gray-700 px-3 py-1 rounded-lg`}>{
                                 model.category ? model.category : 'Text Recognition'
                             }</span>
+                            {model.isDemo &&
+                                <span className={`text-xs font-medium text-white bg-gray-700 px-3 py-1 rounded-lg`}>
+                                    <div className="flex gap-x-2 items-center">
+                                        <Image src='/assets/demo-icon.svg' width={15} height={15} alt="demo" /> <span>Demo available</span>
+                                    </div>
+                                </span>
+                            }
                         </div>
                     </div>
                 </div>

@@ -17,9 +17,10 @@ interface ModelData {
     useCases: string;
     cover: string;
     developedBy: string;
-    stars?: number | 0 | undefined;
-    downloads?: number | 0 | undefined;
+    stars?: number;
+    downloads?: number;
     updatedAt?: string;
+    isDemo: boolean;
 }
 
 interface ModelInfoAboutProps {
