@@ -22,4 +22,22 @@ interface ModelData {
     updatedAt?: string;
 }
 
-export type { NavbarProps, SEOHeadProps, ModelData };
+interface ModelInfoAboutProps {
+    title: string;
+    shortDescription: string;
+    category: string;
+    developedBy: string;
+    downloads?: number;
+    stars?: number;
+    cover?: string;
+}
+
+interface DetailAboutProps {
+    longDescription: string;
+}
+
+interface UseCasesProps {
+    useCases: string;
+}
+
+export type { NavbarProps, SEOHeadProps, ModelData, ModelInfoAboutProps, DetailAboutProps, UseCasesProps };

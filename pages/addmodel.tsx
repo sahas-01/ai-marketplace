@@ -44,7 +44,7 @@ const AddModel = () => {
                 justify-center"
       >
         <form
-          className="bg-[#1a1e27] w-8/12 h-fit rounded-xl p-5 mt-3"
+          className="bg-[#1f2639] w-8/12 h-fit rounded-xl p-5 mt-3"
           onSubmit={handleSubmit}
         >
           <h2 className="font-bold text-white text-2xl text-center">

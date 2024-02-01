@@ -7,11 +7,13 @@ import UseCases from '@/sections/UseCases';
 import SEOHead from '@/utils/SEOHead';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { ModelData } from '@/interfaces';
 
 const ModelInfoPage = () => {
     // State to track the active tab
     const [activeTab, setActiveTab] = useState<string | undefined>('about');
     const router = useRouter();
+    const [modelData, setModelData] = useState({} as ModelData);
 
     // Function to handle tab change
     const handleTabChange = (tab?: string) => {
@@ -29,6 +31,7 @@ const ModelInfoPage = () => {
                 const res = await fetch(`/api/getModelData/?_id=${_id}`);
                 const data = await res.json();
                 console.log(data);
+                setModelData(data.model);
             } catch (err) {
                 console.log(err);
             }
@@ -38,13 +41,22 @@ const ModelInfoPage = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         , []);
 
+    console.log(modelData);
+
     return (
         <>
             <SEOHead titleString='AI MarketPlace-Atlan | Model Info' />
             <Navbar />
             <section className='h-auto my-5 px-10 lg:px-20'>
                 <div className="flex flex-col md:flex-row items-center mx-5">
-                    <ModelInfoAbout />
+                    <ModelInfoAbout
+                        title={modelData.title}
+                        shortDescription={modelData.shortDescription}
+                        category={modelData.category}
+                        developedBy={modelData.developedBy}
+                        downloads={modelData.downloads}
+                        stars={modelData.stars}
+                    />
                 </div>
             </section>
             {/* Tabs */}
@@ -63,14 +75,18 @@ const ModelInfoPage = () => {
             {
                 activeTab === 'about' && (
                     <section className='h-auto my-5 px-24'>
-                        <DetailAbout />
+                        <DetailAbout
+                            longDescription={modelData.longDescription}
+                        />
                     </section>
                 )
             }
             {
                 activeTab === 'useCases' && (
                     <section className='h-auto my-5 px-24'>
-                        <UseCases />
+                        <UseCases 
+                         useCases={modelData.useCases}
+                        />
                     </section>
                 )
             }

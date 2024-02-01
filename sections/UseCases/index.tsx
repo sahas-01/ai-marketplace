@@ -1,30 +1,25 @@
 import React from 'react'
+import { UseCasesProps } from '@/interfaces'
 
-const UseCases = () => {
+const UseCases: React.FC<UseCasesProps> = ({ useCases }) => {
+    const useCasesFormatted = useCases?.split('.');
+    console.log(useCasesFormatted);
     return (
         <div className="mx-auto container">
-            <h1 className='text-lg text-white'>
+            <h1 className='text-lg text-white font-bold'>
                 The following are the use cases of this model:
             </h1>
-            <div className="my-5">
-                <span className='text-base text-white border-b-2 border-white'>
-                    Healthcare:
-                </span>
-                <p className='text-base text-white'>
-                    This model can be used to predict the disease based on the symptoms.
-                </p>
-                <li className='text-base text-white underline'>
-                    Finance:
-                </li>
-                <p className='text-base text-white'>
-                    This model can be used to predict the stock prices based on the past data.
-                </p>
-                <li className='text-base text-white underline'>
-                    Marketing:
-                </li>
-                <p className='text-base text-white'>
-                    This model can be used to predict the customer churn based on the past data.
-                </p>
+            <div className="my-5 text-white">
+                {
+                    useCasesFormatted?.map((useCase, index) => (
+                        <div key={index}>
+                            <p className='text-base'>
+                                {useCase}
+                            </p>
+                            <hr className='my-5 border-[#2B2F3D]' />
+                        </div>
+                    ))
+                }
             </div>
 
         </div>
