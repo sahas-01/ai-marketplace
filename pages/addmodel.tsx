@@ -44,7 +44,7 @@ const AddModel = () => {
                 justify-center"
       >
         <form
-          className="bg-[#1f2639] w-8/12 h-fit rounded-xl p-5 mt-3"
+          className="bg-[#11141e] w-8/12 h-fit rounded-xl p-5 mt-3"
           onSubmit={handleSubmit}
         >
           <h2 className="font-bold text-white text-2xl text-center">
@@ -123,7 +123,7 @@ const AddModel = () => {
           <div className="flex align-center justify-center">
             <button
               type="submit"
-              className="block bg-sky-700 text-white text-lg font-bold rounded-xl px-2 py-3 mt-5 mb-2 mr-10 w-full focus:outline-none transition transform duration-100 ease-out"
+              className="block bg-sky-700 hover:bg-blue-700 text-white text-lg font-bold rounded-xl px-2 py-3 mt-5 mb-2 mr-10 w-full focus:outline-none transition transform duration-100 ease-out"
             >
               Submit
             </button>

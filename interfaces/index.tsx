@@ -17,8 +17,8 @@ interface ModelData {
     useCases: string;
     cover: string;
     developedBy: string;
-    stars?: number;
-    downloads?: number;
+    stars?: number | 0 | undefined;
+    downloads?: number | 0 | undefined;
     updatedAt?: string;
 }
 
