@@ -3,15 +3,9 @@ import React from 'react'
 import Image from 'next/image';
 import { Router } from 'next/router';
 import { useRouter } from 'next/navigation';
+import { ModelData } from '@/interfaces';
 
-interface ModelCardProps {
-    id: string;
-    name?: string;
-    description?: string;
-    price?: number;
-}
-
-const ModelCard = ({ id }: ModelCardProps) => {
+const ModelCard: React.FC<{ model: ModelData }> = ({ model }) => {
 
     const router = useRouter();
 
@@ -20,39 +14,51 @@ const ModelCard = ({ id }: ModelCardProps) => {
             <div className="flex flex-col">
                 <div className="flex items-center justify-start mx-5 mt-1.5 gap-x-5">
                     <div className="flex flex-col">
-                        <h4 className={`text-lg font-medium mt-2 text-[#B2B4C6]`}>Financial Data</h4>
+                        <h4 className={`text-base font-medium mt-2 text-[#B2B4C6]`}>{model.title}</h4>
                         <div className="flex items-center gap-x-2 my-1.5">
-                            <span className={`text-sm font-medium text-white bg-gray-500 px-3 py-1.5 rounded-xl`}>By Atlan</span>
-                            <span className={`text-sm font-medium text-white bg-gray-500 px-3 py-1.5 rounded-xl`}>Free</span>
+                            <span className={`text-xs font-medium text-white bg-gray-700 px-3 py-1 rounded-xl`}>{
+                                model.category ? model.category : 'Text Recognition'
+                            }</span>
                         </div>
                     </div>
                 </div>
                 <hr className="border-[#2B2F3D] mx-5" />
                 <p className="text-[#B2B4C6] text-sm px-5 py-2.5">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget augue nec massa volutpat aliquam fringilla non.
+                    {
+                        model.shortDescription ? model.shortDescription : 'This is the short description of the model.'
+                    }
                 </p>
                 <div className="flex items-center gap-x-3.5 mx-5 my-1.5">
                     <p className="flex text-[#B2B4C6] text-xs">
-                        <span className="font-medium">Updated: &nbsp;</span> Dec 15,2023
+                        <span className="font-medium">Updated: &nbsp;</span> {
+                            //convert updatedAt to the format 23rd July 2021
+                            model.updatedAt ? new Date(model.updatedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : '23rd July 2021'
+                        }
                     </p>
                     <p className="flex gap-x-1 text-[#B2B4C6] text-xs">
                         <Image src='/assets/downloads-icon.svg' alt='downloads' width={17.5} height={17.5} />
-                        1.21M
+                        {
+                            model.downloads ? model.downloads : 0
+                        }
                     </p>
                     <p className="flex gap-x-1 text-[#B2B4C6] text-xs">
                         <Image src='/assets/star-icon.svg' alt='likes' width={15.5} height={15.5} />
-                        1.98k
+                        {
+                            model.stars ? model.stars : 0
+                        }
                     </p>
                 </div>
                 <p className="flex gap-x-1 text-[#B2B4C6] text-xs mx-5 my-1.5">
                     Developed by:
                     <span className="text-[#0284c7] font-medium">
-                        Atlan
+                        {
+                            model.developedBy ? model.developedBy : 'Atlan'
+                        }
                     </span>
                 </p>
             </div>
             <button onClick={() => {
-                router.push(`/models/${id}`)
+                router.push(`/models/${model._id}`)
             }}
                 className="flex text-sm text-white bg-[#0284c7] hover:bg-blue-600 font-medium px-4 py-1.5 rounded-lg w-auto m-5">
                 View more
