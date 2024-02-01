@@ -14,6 +14,7 @@ const ModelInfoPage = () => {
     const [activeTab, setActiveTab] = useState<string | undefined>('about');
     const router = useRouter();
     const [modelData, setModelData] = useState({} as ModelData);
+    const [isLoading, setIsLoading] = useState(true);
 
     // Function to handle tab change
     const handleTabChange = (tab?: string) => {
@@ -28,10 +29,14 @@ const ModelInfoPage = () => {
     useEffect(() => {
         const getModelData = async () => {
             try {
-                const res = await fetch(`/api/getModelData/?_id=${_id}`);
-                const data = await res.json();
-                console.log(data);
-                setModelData(data.model);
+                if (_id) {
+                    console.log('inside fetchhhh' + _id);
+                    const res = await fetch(`/api/getModelData/?_id=${_id}`);
+                    const data = await res.json();
+                    console.log(data);
+                    setModelData(data.model);
+                    setIsLoading(false);
+                }
             } catch (err) {
                 console.log(err);
             }
@@ -39,23 +44,35 @@ const ModelInfoPage = () => {
         getModelData();
     }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        , []);
+        , [_id]);
 
     return (
         <>
             <SEOHead titleString='AI MarketPlace-Atlan | Model Info' />
             <Navbar />
             <section className='h-auto my-5 px-10 lg:px-20'>
-                <div className="flex flex-col md:flex-row items-center mx-5">
-                    <ModelInfoAbout
-                        title={modelData.title}
-                        shortDescription={modelData.shortDescription}
-                        category={modelData.category}
-                        developedBy={modelData.developedBy}
-                        downloads={modelData.downloads || 0}
-                        stars={modelData.stars || 0}
-                    />
-                </div>
+                {
+                    isLoading ? (
+                        <div className='flex flex-col items-center justify-center'>
+                            <div className='animate-pulse'>
+                            </div>
+                            <div className='animate-pulse'>
+                            </div>
+                        </div>
+
+                    )
+                        :
+                        <div className="flex flex-col md:flex-row items-center mx-5">
+                            <ModelInfoAbout
+                                title={modelData?.title}
+                                shortDescription={modelData?.shortDescription}
+                                category={modelData?.category}
+                                developedBy={modelData?.developedBy}
+                                downloads={modelData?.downloads || 0}
+                                stars={modelData?.stars || 0}
+                            />
+                        </div>
+                }
             </section>
             {/* Tabs */}
             <section className="flex items-center justify-center lg:justify-start gap-10 mx-6 lg:mx-24 my-10">
