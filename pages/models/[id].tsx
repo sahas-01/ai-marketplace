@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import ModelInfoAbout from '@/sections/ModelInfoTop';
 import Head from 'next/head';
@@ -41,8 +41,6 @@ const ModelInfoPage = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         , []);
 
-    console.log(modelData);
-
     return (
         <>
             <SEOHead titleString='AI MarketPlace-Atlan | Model Info' />
@@ -54,8 +52,8 @@ const ModelInfoPage = () => {
                         shortDescription={modelData.shortDescription}
                         category={modelData.category}
                         developedBy={modelData.developedBy}
-                        downloads={modelData.downloads}
-                        stars={modelData.stars}
+                        downloads={modelData.downloads || 0}
+                        stars={modelData.stars || 0}
                     />
                 </div>
             </section>
@@ -67,16 +65,25 @@ const ModelInfoPage = () => {
                 <button onClick={() => handleTabChange('useCases')} className={`text-base whitespace-pre font-medium ${activeTab === 'useCases' ? 'text-[#0284c7] border-b-2 border-[#0284c7]' : 'text-white border-none'}`}>
                     Use Cases
                 </button>
-                <button onClick={() => handleTabChange('reviews')} className={`text-base font-medium ${activeTab === 'reviews' ? 'text-[#0284c7] border-b-2 border-[#0284c7]' : 'text-white border-none'}`}>
-                    Documentation
+                <button onClick={() => handleTabChange('usage')} className={`text-base font-medium ${activeTab === 'usage' ? 'text-[#0284c7] border-b-2 border-[#0284c7]' : 'text-white border-none'}`}>
+                    Usage
                 </button>
-            </section>
+                {
+                    modelData?.isDemo && (
+                        <button
+                            onClick={() => handleTabChange('tryitout')}
+                            className={`text-base font-medium ${activeTab === 'tryitout' ? 'text-[#0284c7] border-b-2 border-[#0284c7]' : 'text-white border-none'}`}>
+                            Try it out
+                        </button>
+                    )
+                }
+            </section >
 
             {
                 activeTab === 'about' && (
                     <section className='h-auto my-5 px-7 lg:px-24'>
                         <DetailAbout
-                            longDescription={modelData.longDescription}
+                            longDescription={modelData?.longDescription}
                         />
                     </section>
                 )
@@ -84,9 +91,28 @@ const ModelInfoPage = () => {
             {
                 activeTab === 'useCases' && (
                     <section className='h-auto my-5 px-7 lg:px-24'>
-                        <UseCases 
-                         useCases={modelData.useCases}
+                        <UseCases
+                            useCases={modelData?.useCases}
                         />
+                    </section>
+                )
+            }
+
+            {
+                activeTab === 'usage' && (
+                    <section className='h-auto my-5 px-7 lg:px-24 text-white'>
+                        <pre className='bg-slate-800 p-5 rounded-lg'>
+                            <code className="text-white">
+                                {modelData?.codeSnippet}
+                            </code>
+                        </pre>
+                    </section>
+                )
+            }
+            {
+                activeTab === 'tryitout' && (
+                    <section className='h-auto my-5 px-7 lg:px-24 text-white'>
+                        Enter your text here:
                     </section>
                 )
             }

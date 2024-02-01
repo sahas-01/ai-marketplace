@@ -12,6 +12,7 @@ const AddModel = () => {
     category: '',
     useCases: '',
     developedBy: '',
+    codeSnippet: '',
   }
 
   const [modelData, setModelData] = useState(initialModelData)
@@ -104,6 +105,13 @@ const AddModel = () => {
             transition transform duration-100 ease-out resize-none 
             "
               rows={10} cols={50} placeholder='Use Cases' value={modelData.useCases} onChange={(e) => setModelData({ ...modelData, useCases: e.target.value })} />
+          </div>
+          <div className="flex relative m-0">
+            <textarea
+              className="block h-fit bg-[#ffffff12] text-white rounded-lg px-2 border border-slate-600 py-5 mt-5 mb-2 mr-10 text-sm w-full focus:outline-none
+            transition transform duration-100 ease-out resize-none 
+            "
+              rows={10} cols={50} placeholder='Code Snippet' value={modelData.codeSnippet} onChange={(e) => setModelData({ ...modelData, codeSnippet: e.target.value })} />
           </div>
           <div className='flex relative m-0'>
             <input

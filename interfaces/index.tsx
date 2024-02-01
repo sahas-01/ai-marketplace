@@ -21,6 +21,7 @@ interface ModelData {
     downloads?: number;
     updatedAt?: string;
     isDemo: boolean;
+    codeSnippet: string;
 }
 
 interface ModelInfoAboutProps {
