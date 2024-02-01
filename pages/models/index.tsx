@@ -62,11 +62,11 @@ const ModelsPage = () => {
                 <Loader />
             ) : (
                 <div className="flex flex-col">
-                    <h1 className="text-white lg:mx-20 text-4xl font-bold mt-5 mb-0.5">
+                    <h1 className="text-white mx-20 text-4xl font-bold mt-5 mb-0.5">
                         {
                             activeFilter === 'all' ? 'All' : activeFilter === 'featured' ? 'Featured' : 'Ready to try'
                         } Models</h1>
-                    <div className="flex justify-start lg:mx-20 gap-x-5 items-center">
+                    <div className="flex flex-wrap justify-start mx-20 gap-x-5 items-center">
                         <button
                             onClick={() => handleFilter('all')}
                             className={`text-white px-3.5 py-1.5 rounded-xl text-sm font-medium my-5 ${activeFilter === 'all' ? 'bg-gray-700' : 'bg-gray-500'

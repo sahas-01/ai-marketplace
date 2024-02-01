@@ -60,11 +60,11 @@ const ModelInfoPage = () => {
                 </div>
             </section>
             {/* Tabs */}
-            <section className="flex items-center justify-start gap-10 mx-6 lg:mx-24 my-10">
+            <section className="flex items-center justify-center lg:justify-start gap-10 mx-6 lg:mx-24 my-10">
                 <button onClick={() => handleTabChange('about')} className={`text-base font-medium ${activeTab === 'about' ? 'text-[#0284c7] border-b-2 border-[#0284c7]' : 'text-white border-none'}`}>
                     About
                 </button>
-                <button onClick={() => handleTabChange('useCases')} className={`text-base font-medium ${activeTab === 'useCases' ? 'text-[#0284c7] border-b-2 border-[#0284c7]' : 'text-white border-none'}`}>
+                <button onClick={() => handleTabChange('useCases')} className={`text-base whitespace-pre font-medium ${activeTab === 'useCases' ? 'text-[#0284c7] border-b-2 border-[#0284c7]' : 'text-white border-none'}`}>
                     Use Cases
                 </button>
                 <button onClick={() => handleTabChange('reviews')} className={`text-base font-medium ${activeTab === 'reviews' ? 'text-[#0284c7] border-b-2 border-[#0284c7]' : 'text-white border-none'}`}>
@@ -74,7 +74,7 @@ const ModelInfoPage = () => {
 
             {
                 activeTab === 'about' && (
-                    <section className='h-auto my-5 px-24'>
+                    <section className='h-auto my-5 px-7 lg:px-24'>
                         <DetailAbout
                             longDescription={modelData.longDescription}
                         />
@@ -83,7 +83,7 @@ const ModelInfoPage = () => {
             }
             {
                 activeTab === 'useCases' && (
-                    <section className='h-auto my-5 px-24'>
+                    <section className='h-auto my-5 px-7 lg:px-24'>
                         <UseCases 
                          useCases={modelData.useCases}
                         />
