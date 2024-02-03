@@ -5,9 +5,9 @@ import Head from 'next/head';
 import DetailAbout from '@/sections/DetailAbout';
 import UseCases from '@/sections/UseCases';
 import SEOHead from '@/utils/SEOHead';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { ModelData } from '@/interfaces';
+import DemoSection from '@/sections/DemoSection';
 
 const ModelInfoPage = () => {
     // State to track the active tab
@@ -15,7 +15,6 @@ const ModelInfoPage = () => {
     const router = useRouter();
     const [modelData, setModelData] = useState({} as ModelData);
     const [isLoading, setIsLoading] = useState(true);
-    const [summarizeText,setSummarizeText] = useState('');
 
     // Function to handle tab change
     const handleTabChange = (tab?: string) => {
@@ -46,26 +45,6 @@ const ModelInfoPage = () => {
     }
         // eslint-disable-next-line react-hooks/exhaustive-deps
         , [_id]);
-
-    const handleFeatureTest = async () => {
-        try {
-            console.log('inside fetchhhh' + summarizeText);
-            const res = await fetch(`/api/summarize`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    text: summarizeText
-                })
-            });
-            const data = await res.json();
-            console.log(data);
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
     return (
         <>
             <SEOHead titleString='AI MarketPlace-Atlan | Model Info' />
@@ -155,19 +134,7 @@ const ModelInfoPage = () => {
             {
                 activeTab === 'tryitout' && (
                     <section className='h-auto my-5 px-7 lg:px-24 text-white'>
-                        <textarea
-                            className='w-full h-40 p-5 bg-slate-800 rounded-lg'
-                            placeholder='Enter your text here'
-                            value={summarizeText}
-                            onChange={(e) => setSummarizeText(e.target.value)}
-                        />
-                        <button
-                            onClick={
-                                handleFeatureTest
-                            }
-                            className='bg-blueLight text-white px-5 py-2 rounded-lg mt-5'>
-                            Try it out
-                        </button>
+                        <DemoSection />
                     </section>
                 )
             }

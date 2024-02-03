@@ -1,10 +1,10 @@
+import React, { useEffect, useState } from 'react';
 import Loader from '@/components/Loader';
 import ModelCard from '@/components/ModelCard';
 import Navbar from '@/components/Navbar';
 import { ModelData } from '@/interfaces';
 import SEOHead from '@/utils/SEOHead';
 import { Poppins } from 'next/font/google';
-import React, { useEffect, useState } from 'react';
 
 const poppins = Poppins({
     adjustFontFallback: false,
@@ -19,6 +19,8 @@ const ModelsPage = () => {
     const [models, setModels] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [activeFilter, setActiveFilter] = useState('all'); // Track active filter
+    const [currentPage, setCurrentPage] = useState(1);
+    const modelsPerPage = 10;
 
     useEffect(() => {
         const fetchModels = async () => {
@@ -37,6 +39,7 @@ const ModelsPage = () => {
 
     const handleFilter = (filter: string) => {
         setActiveFilter(filter); // Update active filter state
+        setCurrentPage(1); // Reset to first page when filter changes
 
         if (filter === 'all') {
             setModels(allModels);
@@ -45,14 +48,21 @@ const ModelsPage = () => {
                 return model.downloads !== undefined && model.stars !== undefined && model.downloads > 2000 && model.stars > 30;
             });
             setModels(filteredModels);
-        }
-        else if (filter === 'tryitout') {
+        } else if (filter === 'tryitout') {
             const filteredModels = allModels.filter((model: ModelData) => {
                 return model.isDemo;
             });
             setModels(filteredModels);
         }
     };
+
+    // Logic to get current models based on pagination
+    const indexOfLastModel = currentPage * modelsPerPage;
+    const indexOfFirstModel = indexOfLastModel - modelsPerPage;
+    const currentModels = models.slice(indexOfFirstModel, indexOfLastModel);
+
+    // Change page
+    const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
     return (
         <main className={`${poppins.className}`}>
@@ -94,9 +104,22 @@ const ModelsPage = () => {
                 </div>
             )}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-14 sm:mx-20 my-2">
-                {models?.map((model: ModelData) => (
+                {currentModels.map((model: ModelData) => (
                     <ModelCard key={model._id} model={model} />
                 ))}
+            </div>
+            {/* Pagination */}
+            <div className="flex justify-center mt-5">
+                <ul className="flex space-x-2">
+                    {[...Array(Math.ceil(models.length / modelsPerPage))].map((_, index) => (
+                        <li key={index} className="cursor-pointer">
+                            <button onClick={() => paginate(index + 1)}
+                                className={`px-3 py-1 rounded-md mx-1 ${currentPage === index + 1 ? 'bg-blueLight text-white' : 'bg-slate-600 text-white'}`}
+
+                            >{index + 1}</button>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </main>
     );

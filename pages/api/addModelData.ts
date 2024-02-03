@@ -18,7 +18,9 @@ export default async function handler(
       category,
       useCases,
       developedBy,
-      codeSnippet
+      codeSnippet,
+      isDemo,
+      status
     } = req.body;
     console.log(req.body);
 
@@ -42,7 +44,9 @@ export default async function handler(
         category,
         useCases,
         developedBy,
-        codeSnippet
+        codeSnippet,
+        isDemo,
+        status
       });
 
       res.status(201).json({ message: 'Data saved successfully!' });
