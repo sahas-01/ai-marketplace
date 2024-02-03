@@ -15,16 +15,17 @@ const poppins = Poppins({
 
 export default function Home() {
   return (
-    <main className={`text-white flex justify-center items-center ${poppins.className}`}>
+    <main className={`text-white flex justify-center items-center relative`}>
       <SEOHead titleString='AI Marketplace-Atlan | Home' description='AI Marketplace is a big repository of 
       information about LLMs and AI models built by developers and organizations' />
-
-      <h1 className="text-3xl">
-        Welcome to{' '}
-        <Link className="text-blue-600" href="/models">
-          AI Marketplace
-        </Link>
-      </h1>
+      <div className="absolute top-[50%] left-[50%]">
+        <h1 className="text-3xl">
+          Welcome to{' '} AI Marketplace
+        </h1>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          <Link href="/models">Let&apos;s get started</Link>
+        </button>
+      </div>
     </main>
 
   );
