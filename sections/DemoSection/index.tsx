@@ -46,12 +46,13 @@ const DemoSection = () => {
                 {isLoading ? 'Processing...' : 'Try it out'}
             </button>
             {
-                summarizedText && (
+                summarizedText ? (
                     <div className='mt-5'>
                         <h3 className='text-white text-xl font-semibold'>Summarized Text:</h3>
                         <p className='text-white mt-2'>{summarizedText}</p>
                     </div>
                 )
+                    : <p className='text-white mt-5'>No summarized text available</p>
             }
             <ToastContainer theme='dark' />
         </>
