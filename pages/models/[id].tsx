@@ -85,6 +85,9 @@ const ModelInfoPage = () => {
                 <button onClick={() => handleTabChange('usage')} className={`text-base font-medium ${activeTab === 'usage' ? 'text-blueLight border-b-2 border-blueLight' : 'text-white border-none'}`}>
                     Usage
                 </button>
+                <button onClick={() => handleTabChange('comments')} className={`text-base font-medium ${activeTab === 'comments' ? 'text-blueLight border-b-2 border-blueLight' : 'text-white border-none'}`}>
+                    Discussion
+                </button>
                 {
                     modelData?.isDemo && (
                         <button
@@ -135,6 +138,16 @@ const ModelInfoPage = () => {
                 activeTab === 'tryitout' && (
                     <section className='h-auto my-5 px-7 lg:px-24 text-white'>
                         <DemoSection />
+                    </section>
+                )
+            }
+            {
+                activeTab === 'comments' && (
+                    <section className='h-auto my-5 px-7 lg:px-24 text-white'>
+                        <textarea
+                            className='w-full h-40 p-5 bg-slate-800 rounded-lg'
+                            placeholder='Write your comments here'
+                        />
                     </section>
                 )
             }

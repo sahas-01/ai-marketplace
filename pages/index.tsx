@@ -15,11 +15,11 @@ const poppins = Poppins({
 
 export default function Home() {
   return (
-    <main className={`text-white flex justify-center items-center relative`}>
+    <main className={`text-white flex justify-center items-center mt-[350px]`}>
       <SEOHead titleString='AI Marketplace-Atlan | Home' description='AI Marketplace is a big repository of 
       information about LLMs and AI models built by developers and organizations' />
-      <div className="absolute top-[50%] left-[50%]">
-        <h1 className="text-3xl">
+      <div className='flex flex-col items-center gap-y-5 justify-center'>
+        <h1 className="text-3xl text-center">
           Welcome to{' '} AI Marketplace
         </h1>
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
