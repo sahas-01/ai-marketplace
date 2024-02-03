@@ -24,7 +24,7 @@ const ModelsPage = () => {
     useEffect(() => {
         const fetchModels = async () => {
             try {
-                const res = await fetch('https://mockend.com/api/sahas-01/mock-api/models');
+                const res = await fetch(process.env.NEXT_PUBLIC_MOCKDATA_API as string);
                 const data = await res.json();
                 console.log(data);
                 setAllModels(data);
@@ -72,14 +72,14 @@ const ModelsPage = () => {
                     <div className="flex flex-wrap justify-start mx-20 gap-x-5 items-center">
                         <button
                             onClick={() => handleFilter('all')}
-                            className={`text-white px-3.5 py-1.5 rounded-xl text-sm font-medium my-5 ${activeFilter === 'all' ? 'bg-gray-700' : 'bg-gray-500'
+                            className={`text-white px-3.5 py-1.5 rounded-xl text-sm font-medium my-5 ${activeFilter === 'all' ? 'bg-white text-black' : 'bg-neutral-700 text-white'
                                 }`}
                         >
                             All
                         </button>
                         <button
                             onClick={() => handleFilter('featured')}
-                            className={`text-white px-3.5 py-1.5 rounded-xl text-sm font-medium my-5 ${activeFilter === 'featured' ? 'bg-gray-700' : 'bg-gray-500'
+                            className={`text-white px-3.5 py-1.5 rounded-xl text-sm font-medium my-5 ${activeFilter === 'featured' ? 'bg-white text-black' : 'bg-neutral-700 text-white'
                                 }`}
                         >
                             Featured
@@ -96,7 +96,7 @@ const ModelsPage = () => {
                 {Array.from({ length: Math.ceil(allModels.length / 10) }).map((_, index) => (
                     <button
                         key={index}
-                        className={`px-3 py-1 rounded-md mx-1 ${currentPage === index + 1 ? 'bg-gray-700 text-white' : 'bg-gray-500 text-gray-200'}`}
+                        className={`px-3 py-1 rounded-md mx-1 ${currentPage === index + 1 ? 'bg-blueLight text-white' : 'bg-slate-600 text-white'}`}
                         onClick={() => handlePageChange(index + 1)}
                     >
                         {index + 1}

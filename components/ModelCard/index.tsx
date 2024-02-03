@@ -2,12 +2,13 @@ import Link from 'next/link';
 import React from 'react'
 import Image from 'next/image';
 import { Router } from 'next/router';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { ModelData } from '@/interfaces';
 
 const ModelCard: React.FC<{ model: ModelData }> = ({ model }) => {
 
     const router = useRouter();
+    const isMockDataPath = router.pathname === '/mockdata';
 
     return (
         <div className='relative bg-modelCardBg w-64 sm:w-auto rounded-[20px] shadow-xl'>
@@ -64,12 +65,15 @@ const ModelCard: React.FC<{ model: ModelData }> = ({ model }) => {
                     </span>
                 </p>
             </div>
-            <button onClick={() => {
-                router.push(`/models/${model._id}`)
-            }}
-                className="flex text-sm text-white bg-blueLight hover:bg-blue-600 font-medium px-4 py-1.5 rounded-lg w-auto m-5">
-                View more
-            </button>
+            {/* if the pathname is /models, do not show the view more button */}
+            {!isMockDataPath &&
+                <button onClick={() => {
+                    router.push(`/models/${model._id}`)
+                }}
+                    className="flex text-sm text-white bg-blueLight hover:bg-blue-600 font-medium px-4 py-1.5 rounded-lg w-auto m-5">
+                    View more
+                </button>
+            }
         </div>
     );
 }

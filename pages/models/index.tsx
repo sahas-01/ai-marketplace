@@ -71,21 +71,21 @@ const ModelsPage = () => {
                     <div className="flex flex-wrap justify-start mx-20 gap-x-5 items-center">
                         <button
                             onClick={() => handleFilter('all')}
-                            className={`text-white px-3.5 py-1.5 rounded-xl text-sm font-medium my-5 ${activeFilter === 'all' ? 'bg-gray-700' : 'bg-gray-500'
+                            className={`px-3.5 py-1.5 rounded-xl text-sm font-medium my-5 ${activeFilter === 'all' ? 'bg-white text-black' : 'bg-neutral-700 text-white'
                                 }`}
                         >
                             All
                         </button>
                         <button
                             onClick={() => handleFilter('featured')}
-                            className={`text-white px-3.5 py-1.5 rounded-xl text-sm font-medium my-5 ${activeFilter === 'featured' ? 'bg-gray-700' : 'bg-gray-500'
+                            className={`px-3.5 py-1.5 rounded-xl text-sm font-medium my-5 ${activeFilter === 'featured' ? 'bg-white text-black' : 'bg-neutral-700 text-white'
                                 }`}
                         >
                             Featured
                         </button>
                         <button
                             onClick={() => handleFilter('tryitout')}
-                            className={`text-white px-3.5 py-1.5 rounded-xl text-sm font-medium my-5 ${activeFilter === 'tryitout' ? 'bg-gray-700' : 'bg-gray-500'
+                            className={`px-3.5 py-1.5 rounded-xl text-sm font-medium my-5 ${activeFilter === 'tryitout' ? 'bg-white text-black' : 'bg-neutral-700 text-white'
                                 }`}
                         >
                             Try it out
@@ -94,7 +94,7 @@ const ModelsPage = () => {
                 </div>
             )}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-14 sm:mx-20 my-2">
-                {models.map((model: ModelData) => (
+                {models?.map((model: ModelData) => (
                     <ModelCard key={model._id} model={model} />
                 ))}
             </div>

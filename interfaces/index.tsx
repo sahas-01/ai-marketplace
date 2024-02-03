@@ -22,6 +22,7 @@ interface ModelData {
     updatedAt?: string;
     isDemo: boolean;
     codeSnippet: string;
+    status: "Not ready" | "testing" | "production"; 
 }
 
 interface ModelInfoAboutProps {
@@ -32,6 +33,7 @@ interface ModelInfoAboutProps {
     downloads?: number;
     stars?: number;
     cover?: string;
+    status: string;
 }
 
 interface DetailAboutProps {

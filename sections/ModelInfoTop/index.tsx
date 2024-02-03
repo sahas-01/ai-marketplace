@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import { ModelInfoAboutProps } from '@/interfaces'
 
-const ModelInfoAbout: React.FC<ModelInfoAboutProps> = ({ title, shortDescription, category, developedBy, downloads, stars, cover }) => {
+const ModelInfoAbout: React.FC<ModelInfoAboutProps> = ({ title, shortDescription, category, developedBy, downloads, stars, cover, status }) => {
 
     console.log(title, shortDescription, category, developedBy, downloads, stars, cover);
 
@@ -24,9 +24,18 @@ const ModelInfoAbout: React.FC<ModelInfoAboutProps> = ({ title, shortDescription
                     <p className='text-sm font-medium text-white px-5'>Downloads:</p>
                     <span className={`text-sm font-medium text-blueLight`}>{downloads}</span>
                     <p className='text-sm font-medium text-white px-5'>Status:</p>
-                    <span 
-                    style={{color: 'green'}}
-                    className={`text-sm font-medium`}>Production</span>
+                    <span
+                        style={{
+                            color:
+                                status === "production" ? "#00FF00" :
+                                    status === "testing" ? "#FFFF00" :
+                                        "#FF0000"
+                        }}
+                        className="text-sm font-medium"
+                    >
+                        {status}
+                    </span>
+
                 </div>
             </div>
         </>

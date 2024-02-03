@@ -16,6 +16,11 @@ const UseCases: React.FC<UseCasesProps> = ({ useCases }) => {
                             <p className='text-base'>
                                 {useCase}
                             </p>
+                            <hr 
+                            style={{ 
+                                border: '1px solid #3A3A3A'
+                            }}
+                            className='my-5'/>
                         </div>
                     ))
                 }
