@@ -24,6 +24,9 @@ npm install
 Set environment variables:
 ```bash
 MONGODB_URI= mongodb+srv://<username>:<password>@cluster0.zynymms.mongodb.net/
+NEXT_PUBLIC_MOCKDATA_API="https://mockend.com/api/<username>/<repo name>/<collection name>"
+TEXT_API_KEY=your api key
+TEXT_SUMMARIZER_URL="summarizer url"
 ```
 
 Run the app:
