@@ -1,19 +1,17 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { MongoClient, ObjectId } from 'mongodb';
 
-type Data = {
-    message: string;
+type Comment = {
+    modelId: string;
+    comment: string;
 };
 
 export default async function handler(
     req: NextApiRequest,
-    res: NextApiResponse<Data>,
+    res: NextApiResponse<Comment[] | { message: string }>,
 ) {
-    if (req.method === 'POST') {
-        const {
-            modelId,
-            comment
-        } = req.body;
+    if (req.method === 'GET') {
+        const { modelId } = req.query;
 
         if (!process.env.MONGODB_URI) {
             res.status(500).json({ message: 'Something went wrong!' });
@@ -28,21 +26,21 @@ export default async function handler(
 
             const collection = database.collection('models'); // Choose a name for your collection
 
-            // Add a new comment to an existing model
-            console.log('modelId', modelId);
-            const filter = { _id: new ObjectId(modelId) };
-            const update = {
-                $push: {
-                    comments: {
-                        id: new ObjectId(),
-                        comment
-                    }
-                }
-            };
+            const filter = { _id: new ObjectId(modelId as string) };
+            const projection = { comments: 1, _id: 0 }; // Only retrieve comments field, exclude _id field
 
-            await collection.updateOne(filter, update);
+            const result = await collection.findOne(filter, { projection });
 
-            res.status(201).json({ message: 'Comment added successfully!' });
+            console.log('result', result);
+
+            if (!result) {
+                res.status(404).json({ message: 'Model not found!' });
+                return;
+            }
+
+            const comments: Comment[] = result.comments || [];
+            console.log('comments', comments);
+            res.status(200).json(comments);
         } catch (error) {
             console.log(error);
             res.status(500).json({ message: 'Something went wrong!' });

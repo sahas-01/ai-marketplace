@@ -8,6 +8,8 @@ import SEOHead from '@/utils/SEOHead';
 import { useRouter } from 'next/router';
 import { ModelData } from '@/interfaces';
 import DemoSection from '@/sections/DemoSection';
+import CommentContainer from '@/sections/CommentContainer';
+
 
 const ModelInfoPage = () => {
     // State to track the active tab
@@ -15,7 +17,6 @@ const ModelInfoPage = () => {
     const router = useRouter();
     const [modelData, setModelData] = useState({} as ModelData);
     const [isLoading, setIsLoading] = useState(true);
-
     // Function to handle tab change
     const handleTabChange = (tab?: string) => {
         console.log(tab);
@@ -45,6 +46,7 @@ const ModelInfoPage = () => {
     }
         // eslint-disable-next-line react-hooks/exhaustive-deps
         , [_id]);
+
     return (
         <>
             <SEOHead titleString='AI MarketPlace-Atlan | Model Info' />
@@ -144,14 +146,10 @@ const ModelInfoPage = () => {
             {
                 activeTab === 'comments' && (
                     <section className='h-auto my-5 px-7 lg:px-24 text-white'>
-                        <textarea
-                            className='w-full h-40 p-5 bg-slate-800 rounded-lg'
-                            placeholder='Write your comments here'
-                        />
+                        <CommentContainer _id={_id} />
                     </section>
                 )
             }
-
         </>
     );
 };
