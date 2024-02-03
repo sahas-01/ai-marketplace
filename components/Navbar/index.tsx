@@ -18,8 +18,8 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                     isMenuOpen && (
                         <div className="absolute top-[72px] left-0 w-full bg-navbarBg z-50">
                             <nav className="flex flex-col items-center gap-y-5 py-5">
-                                <li className={`flex text-white text-sm font-medium cursor-pointer list-none text-blueLight ${className}`}>
-                                    <a>Home</a>
+                                <li className={`flex text-white text-sm font-medium cursor-pointer list-none`}>
+                                    <Link href='/models' className={router.asPath == '/models' ? 'text-blueLight' : 'text-white'}>Home</Link>
                                 </li>
                                 <li className={`text-white text-sm font-medium cursor-pointer list-none ${className}`}>Explore AI Tools</li>
                                 <button
@@ -39,7 +39,9 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                     <li className={`flex text-white text-sm font-medium cursor-pointer list-none`}>
                         <Link href='/models' className={router.asPath == '/models' ? 'text-blueLight' : 'text-white'}>Home</Link>
                     </li>
-                    <li className={`text-white text-sm font-medium cursor-pointer list-none`}>Explore AI Tools</li>
+                    <li className={`text-white text-sm font-medium cursor-pointer list-none`}>
+                        <Link href='/mockdata' className={router.asPath == '/mockdata' ? 'text-blueLight' : 'text-white'}>Mock Data</Link>
+                    </li>
                 </nav>
                 <button
                     className="md:hidden text-white cursor-pointer focus:outline-none"

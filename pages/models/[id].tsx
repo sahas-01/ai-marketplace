@@ -118,11 +118,16 @@ const ModelInfoPage = () => {
             {
                 activeTab === 'usage' && (
                     <section className='h-auto my-5 px-7 lg:px-24 text-white'>
-                        <pre className='bg-slate-800 p-5 rounded-lg'>
-                            <code className="text-white">
-                                {modelData?.codeSnippet}
-                            </code>
-                        </pre>
+                        {
+                            modelData?.codeSnippet ?
+                                <pre className='bg-slate-800 p-5 rounded-lg'>
+                                    <code className="text-white">
+                                        {modelData?.codeSnippet}
+                                    </code>
+                                </pre>
+                                :
+                                <h3 className='text-2xl font-semibold text-white'>No code snippet available</h3>
+                        }
                     </section>
                 )
             }

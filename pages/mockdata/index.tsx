@@ -15,18 +15,20 @@ const poppins = Poppins({
 });
 
 const ModelsPage = () => {
-    const [allModels, setAllModels] = useState([]);
-    const [models, setModels] = useState([]);
+    const [allModels, setAllModels] = useState<ModelData[]>([]);
+    const [models, setModels] = useState<ModelData[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [activeFilter, setActiveFilter] = useState('all'); // Track active filter
+    const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
         const fetchModels = async () => {
             try {
-                const res = await fetch('/api/getAllModels');
+                const res = await fetch('https://mockend.com/api/sahas-01/mock-api/models');
                 const data = await res.json();
-                setAllModels(data.models);
-                setModels(data.models);
+                console.log(data);
+                setAllModels(data);
+                setModels(data.slice(0, 10)); // Display the first 10 items initially
                 setIsLoading(false);
             } catch (err) {
                 console.log(err);
@@ -39,19 +41,18 @@ const ModelsPage = () => {
         setActiveFilter(filter); // Update active filter state
 
         if (filter === 'all') {
-            setModels(allModels);
+            setModels(allModels.slice((currentPage - 1) * 10, currentPage * 10));
         } else if (filter === 'featured') {
             const filteredModels = allModels.filter((model: ModelData) => {
                 return model.downloads !== undefined && model.stars !== undefined && model.downloads > 2000 && model.stars > 30;
             });
-            setModels(filteredModels);
+            setModels(filteredModels.slice((currentPage - 1) * 10, currentPage * 10));
         }
-        else if (filter === 'tryitout') {
-            const filteredModels = allModels.filter((model: ModelData) => {
-                return model.isDemo;
-            });
-            setModels(filteredModels);
-        }
+    };
+
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+        handleFilter(activeFilter);
     };
 
     return (
@@ -66,7 +67,7 @@ const ModelsPage = () => {
                 <div className="flex flex-col">
                     <h1 className="text-white mx-20 text-4xl font-bold mt-5 mb-0.5">
                         {
-                            activeFilter === 'all' ? 'All' : activeFilter === 'featured' ? 'Featured' : 'Ready to try'
+                            activeFilter === 'all' ? 'All' : activeFilter === 'featured' && 'Featured'
                         } Models</h1>
                     <div className="flex flex-wrap justify-start mx-20 gap-x-5 items-center">
                         <button
@@ -83,19 +84,23 @@ const ModelsPage = () => {
                         >
                             Featured
                         </button>
-                        <button
-                            onClick={() => handleFilter('tryitout')}
-                            className={`text-white px-3.5 py-1.5 rounded-xl text-sm font-medium my-5 ${activeFilter === 'tryitout' ? 'bg-gray-700' : 'bg-gray-500'
-                                }`}
-                        >
-                            Try it out
-                        </button>
                     </div>
                 </div>
             )}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-14 sm:mx-20 my-2">
                 {models.map((model: ModelData) => (
-                    <ModelCard key={model._id} model={model} />
+                    <ModelCard key={model.title} model={model} />
+                ))}
+            </div>
+            <div className="flex justify-center my-5">
+                {Array.from({ length: Math.ceil(allModels.length / 10) }).map((_, index) => (
+                    <button
+                        key={index}
+                        className={`px-3 py-1 rounded-md mx-1 ${currentPage === index + 1 ? 'bg-gray-700 text-white' : 'bg-gray-500 text-gray-200'}`}
+                        onClick={() => handlePageChange(index + 1)}
+                    >
+                        {index + 1}
+                    </button>
                 ))}
             </div>
         </main>

@@ -10,7 +10,7 @@ const ModelCard: React.FC<{ model: ModelData }> = ({ model }) => {
     const router = useRouter();
 
     return (
-        <div className='relative bg-modelCardBg rounded-[20px] shadow-xl'>
+        <div className='relative bg-modelCardBg w-64 sm:w-auto rounded-[20px] shadow-xl'>
             <div className="flex flex-col">
                 <div className="flex items-center justify-start mx-5 mt-1.5 gap-x-5">
                     <div className="flex flex-col">

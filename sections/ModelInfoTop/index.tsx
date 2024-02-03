@@ -23,6 +23,10 @@ const ModelInfoAbout: React.FC<ModelInfoAboutProps> = ({ title, shortDescription
                     <span className={`text-sm font-medium text-blueLight`}>{stars}</span>
                     <p className='text-sm font-medium text-white px-5'>Downloads:</p>
                     <span className={`text-sm font-medium text-blueLight`}>{downloads}</span>
+                    <p className='text-sm font-medium text-white px-5'>Status:</p>
+                    <span 
+                    style={{color: 'green'}}
+                    className={`text-sm font-medium`}>Production</span>
                 </div>
             </div>
         </>
