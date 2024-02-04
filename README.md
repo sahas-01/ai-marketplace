@@ -1,9 +1,10 @@
 ## AI Marketplace - Atlan Frontend Hiring challenge 
 
-### Project Goal 
+
+## Project Goal 
 To build an application that showcases the various models deployed by organisations and developers alike. The application should capture the nuances of a real-life production application, and show the various models available, their categories, and should allow end-users to select and explore any one model.
 
-### Tech Stack
+## Tech Stack
 - Programming Language: Typescript
 - Web Framework: NextJS, TailwindCSS
 - Database: MongodB
@@ -48,7 +49,7 @@ While creating a model, one can select if the model is available for the general
 For each model, any user can add comments(anonymous for now), and they can be viewed under the <b>Discussion</b> section. 
 
 
-### Speed of Website
+## Speed of Website
 Some metrics I used to measure the speed of the website:
 1. #### https://pagespeed.web.dev/
 For the <a href="https://ai-marketplace-atlan-task.vercel.app">Home Page</a>
@@ -66,7 +67,7 @@ However, it is worth noting that for the above page, Accessibility is a little b
 
 
 
-### Instructions to run
+## Instructions to run
 
 First, clone the repository:
 ```bash
