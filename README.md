@@ -11,7 +11,7 @@ To build an application that showcases the various models deployed by organisati
 
 <b>IMPORTANT:</b> <br />
 Currently, there are two separate pages - one for viewing mock data information and one for viewing data created by you(or any user)
-The mock data information was created using mockend(a free provider of mock data for take home assignments by https://jsonplaceholder.typicode.com/), however at times the service stops, hence I created a database to put in information about a model, hence there are two tabs in the navbar which say <b>Home</b> and <b>Mock Data</b>. Hence in order to view the complete functionality of the application, use the space available inside <b>Home</b>. A detailed explanation of the same is given under Features section
+The mock data information was created using mockend(a free provider of mock data for take home assignments by https://jsonplaceholder.typicode.com/), however at times the service stops, hence I created a database to put in information about a model, which is why there are separate options to view created data(<b>Home</b>) and <b>Mock Data</b>. Hence in order to view the complete functionality of the application, use the space available inside <b>Home</b>. A detailed explanation of the same is given under Features section
 
 ## Features
 - #### View All Models
@@ -38,6 +38,33 @@ A form which is enclosed within a page to add details about a model such as:
 6. Status - not ready, testing, production
 7. Use cases - heading of the use case followed by a one line explanation of the same
 8. Name of the developer/organization who developed the model
+
+
+### Bonus Features
+- #### Try it out
+While creating a model, one can select if the model is available for the general audience to try it out, at present, there is support to add only 1 model
+
+- #### Comments
+For each model, any user can add comments(anonymous for now), and they can be viewed under the <b>Discussion</b> section. 
+
+
+### Speed of Website
+Some metrics I used to measure the speed of the website:
+1. #### https://pagespeed.web.dev/
+For the <a href="https://ai-marketplace-atlan-task.vercel.app">Home Page</a>
+- <b>First Contentful Paint (FCP)</b> - 1.1s on mobile and 0.4s on the web, which is pretty decent in my opinion, cannot be optimized further
+
+For the <a href="https://ai-marketplace-atlan-task.vercel.app/models">Models Page</a>
+- <b>First Contentful Paint</b> - 0.2 s on Desktop and 0.9s on mobile, which again I find is pretty decent, cannot be optimized further
+- <b>Speed Index</b> - 2.8s for mobile and 1.7s for desktop, this can be optimized(probably) with server side rendering where the content loads first on the server and is then served to the client
+
+For the <a href="https://ai-marketplace-atlan-task.vercel.app/addmodel">Add Model</a>
+- <b>First Contentful Paint</b> - 0.2s on Desktop and 0.8s on mobile, which again I find is pretty decent, cannot be optimized further
+- <b>Speed Index</b> - 0.8s for mobile and 0.4s for desktop, this can be optimized(probably) with server side rendering where the content loads first on the server and is then served to the client.
+
+However, it is worth noting that for the above page, Accessibility is a little below par, as recommended by the insights
+
+
 
 ### Instructions to run
 
