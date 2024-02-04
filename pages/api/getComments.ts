@@ -31,7 +31,7 @@ export default async function handler(
 
             const result = await collection.findOne(filter, { projection });
 
-            console.log('result', result);
+            // console.log('result', result);
 
             if (!result) {
                 res.status(404).json({ message: 'Model not found!' });
@@ -39,10 +39,10 @@ export default async function handler(
             }
 
             const comments: Comment[] = result.comments || [];
-            console.log('comments', comments);
+            // console.log('comments', comments);
             res.status(200).json(comments);
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             res.status(500).json({ message: 'Something went wrong!' });
         } finally {
             await client.close();

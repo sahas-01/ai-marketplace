@@ -22,7 +22,7 @@ export default async function handler(
       isDemo,
       status
     } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
 
     if (!process.env.MONGODB_URI) {
       res.status(500).json({ message: 'Something went wrong!' });

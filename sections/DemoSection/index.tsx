@@ -23,7 +23,7 @@ const DemoSection = () => {
                 const data = await res.json();
                 setSummarizedText(data.result);
             } catch (err) {
-                console.log(err);
+                // console.log(err);
             } finally {
                 setIsLoading(false); // Reset loading state regardless of success or failure
             }

@@ -29,7 +29,7 @@ export default async function handler(
             const collection = database.collection('models'); // Choose a name for your collection
 
             // Add a new comment to an existing model
-            console.log('modelId', modelId);
+            // console.log('modelId', modelId);
             const filter = { _id: new ObjectId(modelId) };
             const update = {
                 $push: {
@@ -44,7 +44,7 @@ export default async function handler(
 
             res.status(201).json({ message: 'Comment added successfully!' });
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             res.status(500).json({ message: 'Something went wrong!' });
         } finally {
             await client.close();

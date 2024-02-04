@@ -19,27 +19,27 @@ const ModelInfoPage = () => {
     const [isLoading, setIsLoading] = useState(true);
     // Function to handle tab change
     const handleTabChange = (tab?: string) => {
-        console.log(tab);
+        // console.log(tab);
         setActiveTab(tab);
     };
     //get the id from this page's url
     const { id } = router.query;
     const _id = id as string;
-    console.log(_id);
+    // console.log(_id);
 
     useEffect(() => {
         const getModelData = async () => {
             try {
                 if (_id) {
-                    console.log('inside fetchhhh' + _id);
+                    // console.log('inside fetchhhh' + _id);
                     const res = await fetch(`/api/getModelData/?_id=${_id}`);
                     const data = await res.json();
-                    console.log(data);
+                    // console.log(data);
                     setModelData(data.model);
                     setIsLoading(false);
                 }
             } catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         }
         getModelData();

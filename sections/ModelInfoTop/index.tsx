@@ -4,8 +4,6 @@ import { ModelInfoAboutProps } from '@/interfaces'
 
 const ModelInfoAbout: React.FC<ModelInfoAboutProps> = ({ title, shortDescription, category, developedBy, downloads, stars, cover, status }) => {
 
-    console.log(title, shortDescription, category, developedBy, downloads, stars, cover);
-
     return (
         <>
             <Image src={cover ? cover : 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}

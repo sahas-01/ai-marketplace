@@ -11,7 +11,7 @@ export default async function handler(req:any, res:any) {
             min_length: 5,
             max_length: 100
         };
-
+        // console.log('Request Body:', requestBody);
         try {
             const apiRes = await fetch(process.env.TEXT_SUMMARIZER_URL as string, {
                 method: 'POST',

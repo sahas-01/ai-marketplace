@@ -18,12 +18,12 @@ const ModelsPage = () => {
             try {
                 const res = await fetch(process.env.NEXT_PUBLIC_MOCKDATA_API as string);
                 const data = await res.json();
-                console.log(data);
+                // console.log(data);
                 setAllModels(data);
                 setModels(data.slice(0, 10)); // Display the first 10 items initially
                 setIsLoading(false);
             } catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         };
         fetchModels();

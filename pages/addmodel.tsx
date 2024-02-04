@@ -25,7 +25,7 @@ const AddModel = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log(modelData)
+    // console.log(modelData)
     const res = await fetch('/api/addModelData', {
       method: 'POST',
       headers: {

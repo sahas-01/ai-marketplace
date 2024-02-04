@@ -3,7 +3,6 @@ import { UseCasesProps } from '@/interfaces'
 
 const UseCases: React.FC<UseCasesProps> = ({ useCases }) => {
     const useCasesFormatted = useCases?.split('.');
-    console.log(useCasesFormatted);
     return (
         <div className="mx-auto container">
             <h1 className='text-lg text-white font-bold'>

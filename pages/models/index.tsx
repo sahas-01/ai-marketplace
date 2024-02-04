@@ -31,7 +31,7 @@ const ModelsPage = () => {
                 setModels(data.models);
                 setIsLoading(false);
             } catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         };
         fetchModels();

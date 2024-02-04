@@ -25,7 +25,7 @@ const CommentContainer: React.FC<CommentsProps> = ({ _id }) => {
                 })
             });
             const data = await res.json();
-            console.log(data);
+            // console.log(data);
             toast.success('Comment added successfully');
             setCommentMessage('');
             setTimeout(() => {
@@ -33,21 +33,21 @@ const CommentContainer: React.FC<CommentsProps> = ({ _id }) => {
             }
                 , 1000);
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
     };
 
 
     const getComments = async () => {
         try {
-            console.log("Fetching comments", _id);
+            // console.log("Fetching comments", _id);
             const res = await fetch(`/api/getComments?modelId=${_id}`);
             const data = await res.json();
-            console.log("Commentssss", data);
+            // console.log("Commentssss", data);
             setComments(data);
             setCommentLoader(false);
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
     };
 
@@ -56,7 +56,7 @@ const CommentContainer: React.FC<CommentsProps> = ({ _id }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    console.log(comments);
+    // console.log(comments);
 
 
 
