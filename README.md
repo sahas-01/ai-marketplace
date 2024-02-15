@@ -1,4 +1,4 @@
-## AI Marketplace - Atlan Frontend Hiring challenge 
+## AI Marketplace
 
 
 ## Project Goal 
