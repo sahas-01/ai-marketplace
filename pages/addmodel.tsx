@@ -48,7 +48,7 @@ const AddModel = () => {
 
   return (
     <>
-      <SEOHead titleString='AI MarketPlace-Atlan | Add Model' />
+      <SEOHead titleString='AI MarketPlace | Add Model' />
       <Navbar />
       <div
         className="flex flex-col items-center 

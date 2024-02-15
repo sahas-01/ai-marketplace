@@ -49,7 +49,7 @@ const ModelsPage = () => {
 
     return (
         <>
-            <SEOHead titleString="AI Marketplace-Atlan | Models" description="AI Marketplace is a big repository of LLMs and AI models built by developers and organizations" />
+            <SEOHead titleString="AI Marketplace | Models" description="AI Marketplace is a big repository of LLMs and AI models built by developers and organizations" />
             <Navbar />
             {isLoading ? (
                 <div className="relative flex justify-center items-center">

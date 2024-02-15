@@ -66,7 +66,7 @@ const ModelsPage = () => {
 
     return (
         <main className={`${poppins.className}`}>
-            <SEOHead titleString="AI Marketplace-Atlan | Models" description="AI Marketplace is a big repository of LLMs and AI models built by developers and organizations" />
+            <SEOHead titleString="AI Marketplace | Models" description="AI Marketplace is a big repository of LLMs and AI models built by developers and organizations" />
             <Navbar />
             {isLoading ? (
                 <div className="relative flex justify-center items-center">
@@ -111,13 +111,14 @@ const ModelsPage = () => {
             {/* Pagination */}
             <div className="flex justify-center mt-5">
                 <ul className="flex space-x-2">
-                    {[...Array(Math.ceil(models.length / modelsPerPage))].map((_, index) => (
-                        <li key={index} className="cursor-pointer">
-                            <button onClick={() => paginate(index + 1)}
-                                className={`px-3 py-1 rounded-md mx-1 ${currentPage === index + 1 ? 'bg-blueLight text-white' : 'bg-slate-600 text-white'}`}
-
-                            >{index + 1}</button>
-                        </li>
+                    {Array.from({ length: Math.ceil(models?.length / modelsPerPage) }).map((_, index) => (
+                        <button
+                            key={index}
+                            className={`px-3 py-1 rounded-md mx-1 ${currentPage === index + 1 ? 'bg-blueLight text-white' : 'bg-slate-600 text-white'}`}
+                            onClick={() => paginate(index + 1)}
+                        >
+                            {index + 1}
+                        </button>
                     ))}
                 </ul>
             </div>

@@ -13,12 +13,12 @@ import CommentContainer from '@/sections/CommentContainer';
 
 const ModelInfoPage = () => {
     // State to track the active tab
-    const [activeTab, setActiveTab] = useState<string | undefined>('about');
+    const [activeTab, setActiveTab] = useState<string>('about');
     const router = useRouter();
     const [modelData, setModelData] = useState({} as ModelData);
     const [isLoading, setIsLoading] = useState(true);
     // Function to handle tab change
-    const handleTabChange = (tab?: string) => {
+    const handleTabChange = (tab: string) => {
         // console.log(tab);
         setActiveTab(tab);
     };
@@ -49,7 +49,7 @@ const ModelInfoPage = () => {
 
     return (
         <>
-            <SEOHead titleString='AI MarketPlace-Atlan | Model Info' />
+            <SEOHead titleString='AI MarketPlace | Model Info' />
             <Navbar />
             <section className='h-auto my-5 px-10 lg:px-20'>
                 {
