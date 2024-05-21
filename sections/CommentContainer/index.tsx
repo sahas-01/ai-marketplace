@@ -12,6 +12,8 @@ const CommentContainer: React.FC<CommentsProps> = ({ _id }) => {
     const [commentLoader, setCommentLoader] = useState(false);
     const router = useRouter();
 
+    console.log({_id});
+
     const handleAddComment = async () => {
         try {
             const res = await fetch('/api/addComment', {
