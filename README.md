@@ -52,14 +52,14 @@ For each model, any user can add comments(anonymous for now), and they can be vi
 ## Speed of Website
 Some metrics I used to measure the speed of the website:
 1. #### https://pagespeed.web.dev/
-For the <a href="https://ai-marketplace-atlan-task.vercel.app">Home Page</a>
+For the <a href="https://market-place-ai.vercel.app/">Home Page</a>
 - <b>First Contentful Paint (FCP)</b> - 1.1s on mobile and 0.4s on the web, which is pretty decent in my opinion, cannot be optimized further
 
-For the <a href="https://ai-marketplace-atlan-task.vercel.app/models">Models Page</a>
+For the <a href="https://market-place-ai.vercel.app/models">Models Page</a>
 - <b>First Contentful Paint</b> - 0.2 s on Desktop and 0.9s on mobile, which again I find is pretty decent, cannot be optimized further
 - <b>Speed Index</b> - 2.8s for mobile and 1.7s for desktop, this can be optimized(probably) with server side rendering where the content loads first on the server and is then served to the client
 
-For the <a href="https://ai-marketplace-atlan-task.vercel.app/addmodel">Add Model</a>
+For the <a href="https://market-place-ai.vercel.app/addmodel">Add Model</a>
 - <b>First Contentful Paint</b> - 0.2s on Desktop and 0.8s on mobile, which again I find is pretty decent, cannot be optimized further
 - <b>Speed Index</b> - 0.8s for mobile and 0.4s for desktop, this can be optimized(probably) with server side rendering where the content loads first on the server and is then served to the client.
 
